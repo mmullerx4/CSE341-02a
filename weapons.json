@@ -1,0 +1,38 @@
+{
+    "weapon": {
+        "Name": "Candlestick",
+        "weight": "10 lbs",
+        "color": "Gold"
+    },
+
+    "weapon2": {
+        "Name": "Dagger",
+        "weight": "4 lbs",
+        "color": "Bronze/Silver"
+    },
+
+    "weapon3": {
+        "Name": "Revolver",
+        "weight": "7 lbs",
+        "color": "Black"
+    },
+
+    "weapon4": {
+        "Name": "Lead Pipe",
+        "weight": "8 lbs",
+        "color": "Gray"
+    },
+
+    "weapon5": {
+        "Name": "Wrench",
+        "weight": "6 lbs",
+        "color": "Silver"
+    },
+
+    "weapon6": {
+        "Name": "Rope",
+        "weight": "5 lbs",
+        "color": "Beige"
+    }
+
+}

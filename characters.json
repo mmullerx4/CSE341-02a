@@ -1,0 +1,67 @@
+{
+    "character3": {
+        "Name": "Colonel Mustard",
+        "fullName": "Jack Mustard",
+        "background": "Military",
+        "maritalStatus": "Single",
+        "personalityType": "Commander",
+        "mainHobby": "Football",
+        "mainCharacteristic": "Manipulator",
+        "occupation": "Retired"
+    },
+
+    "character4": {
+        "Name": "Miss Scarlett",
+        "fullName": "Kasandra Scarlet",
+        "background": "Sketchy",
+        "maritalStatus": "Single",
+        "personalityType": "Performer",
+        "mainHobby": "Billionaires List",
+        "mainCharacteristic": "Seductive",
+        "occupation": "Movie Star"
+    },
+
+    "character5": {
+        "Name": "Professor Plum",
+        "fullName": "Victor Plum",
+        "background": "Higher Education",
+        "maritalStatus": "Single",
+        "personalityType": "Mastermind",
+        "mainHobby": "Video Games",
+        "mainCharacteristic": "Mad Scientist",
+        "occupation": "Professor"
+    },
+
+    "character6": {
+        "Name": "Mr. Green",
+        "fullName": "Jacob Mustard",
+        "background": "Phony Spirituality",
+        "maritalStatus": "Single",
+        "personalityType": "Campaigner",
+        "mainHobby": "Money Laundering",
+        "mainCharacteristic": "Schemer",
+        "occupation": "TV Evangelist"
+    },
+
+    "character7": {
+        "Name": "Mrs. Peacock",
+        "fullName": "Eleanor Peacock",
+        "background": "Wealth",
+        "maritalStatus": "Widow",
+        "personalityType": "Executive",
+        "mainHobby": "Stock Market",
+        "mainCharacteristic": "Extravagant",
+        "occupation": "None"
+    },
+
+    "character8": {
+        "Name": "Mrs. White",
+        "fullName": "Diane White",
+        "background": "Serving the Elite",
+        "maritalStatus": "Single",
+        "personalityType": "Pretentous",
+        "mainHobby": "Orchestrating",
+        "mainCharacteristic": "Scandalmonger",
+        "occupation": "Retired"
+    }
+}
