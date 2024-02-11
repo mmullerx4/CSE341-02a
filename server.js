@@ -1,10 +1,28 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const mongodb = require('./db/connect')
+
+
+const port = process.env.PORT || 8080;
 const app = express();
 
-const port = 8080;
+app.use(bodyParser.json())
 
-app.use('/', require('./routes')); //if get request with nothing it redirects to routes folder
+//set up CORS headers
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+})
+app.use('/', require('./routes'));
 
-app.listen(process.env.port || port);
 
-console.log('Web server is listening at port' + (process.env.port || port));
+
+mongodb.initDb((err, mongodb) => {
+    if (err) {
+        console.log(err);
+    } else {
+        app.listen(port, () => {
+            console.log(`Connected to database and listening on ${port}`);
+        });
+    }
+});
