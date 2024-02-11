@@ -5,8 +5,8 @@ const doc = {
         title: 'Clue API',
         description: 'Clue API'
     },
-     host: 'localhost:8080',
-    //host: 'recipe-book-l98l.onrender.com',
+     //host: 'localhost:8080',
+    host: 'cse341-02a.onrender.com',
     schemes: ['http', 'https']
 };
  

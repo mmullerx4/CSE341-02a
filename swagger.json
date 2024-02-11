@@ -5,11 +5,10 @@
     "description": "Clue API",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "https://cse341-02a.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
-    "https"
+    "http"
   ],
   "paths": {
     "/clue/": {
