@@ -6,8 +6,8 @@ const doc = {
         description: 'Clue API'
     },
      //host: 'localhost:8080',
-    host: 'cse341-02a.onrender.com',
-    schemes: ['http']
+    host: 'localhost:8080',
+    schemes: ['https']
 };
  
 const outputFile = './swagger.json';
