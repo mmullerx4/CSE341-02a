@@ -6,8 +6,8 @@ const doc = {
         description: 'Clue API'
     },
      //host: 'localhost:8080',
-    host: 'localhost:8080',
-    schemes: ['https']
+    host: 'https://cse341-02a.onrender.com',
+    schemes: ['https', 'https']
 };
  
 const outputFile = './swagger.json';
@@ -15,3 +15,4 @@ const endpointsFiles = ['./routes/index.js'];
  
 // generate swagger.json
 swaggerAutogen(outputFile, endpointsFiles, doc);
+

@@ -2,70 +2,70 @@
 //just click on the Send Request below
 
 //LocalHost
-### Get all contacts
-GET http://localhost:8080/clue
+### Get all character
+GET http://cse341-02a.onrender.com/clue
+
+### Get character by ID
+GET http://cse341-02a.onrender.com/clue/65aaae4b0ff1a59c000cfe63
+
+### Get character by ID
+GET http://cse341-02a.onrender.com/clue/65aaaef90ff1a59c000cfe64
+
+### Get character by ID
+GET http://cse341-02a.onrender.com/clue/65aab0110ff1a59c000cfe65
 
 ### Get contact by ID
-GET http://localhost:8080/contacts/65aaae4b0ff1a59c000cfe63
+GET http://cse341-02a.onrender.com/clue/65ab15dcc1f33a000b6d1d2a
 
-### Get contact by ID
-GET http://localhost:8080/contacts/65aaaef90ff1a59c000cfe64
+//### Create contact
+//POST http://cse341-02a.onrender.com/clue HTTP/1.1
+//content-type: application/json
 
-### Get contact by ID
-GET http://localhost:8080/contacts/65aab0110ff1a59c000cfe65
+//{
+    // "firstName":"Catherine",
+    //"lastName":"Muller",
+   //"email":"cmuller@mail.com",
+    //"favoriteColor":"red",
+    //"birthday":"01/18/1936"
+//}
 
-### Get contact by ID
-GET http://localhost:8080/contacts/65ab15dcc1f33a000b6d1d2a
+//### PUT (update) contact (works)
+//PUT http://localhost:8080/contacts/65b5c36bc842fca4f72c9f29 HTTP/1.1
+//content-type: application/json
 
-### Create contact
-POST http://localhost:8080/contacts HTTP/1.1
-content-type: application/json
+//{
+   // "firstName":"Jacob",
+    //"lastName":"Muller",
+    //"email":"test3@mail.com",
+    //"favoriteColor":"orange",
+    //"birthday":"05/27/93"
+//}
+//### DELETE contact delete Jeremiah
+//DELETE http://localhost:8080/contacts/65b5c5b8c842fca4f72c9f2b HTTP/1.1 
 
-{
-     "firstName":"Catherine",
-    "lastName":"Muller",
-    "email":"cmuller@mail.com",
-    "favoriteColor":"red",
-    "birthday":"01/18/1936"
-}
+//### Create contact (works) 
+//POST http://localhost:8080/contacts HTTP/1.1
+//content-type: application/json
 
-### PUT (update) contact (works)
-PUT http://localhost:8080/contacts/65b5c36bc842fca4f72c9f29 HTTP/1.1
-content-type: application/json
+//{
+//    "firstName":"Winter",
+   // "lastName":"Muller",
+   // "email":"wmuller@mail.com",
+    //"favoriteColor":"black",
+    //"birthday":"09/04/2014"
+//}
 
-{
-    "firstName":"Jacob",
-    "lastName":"Muller",
-    "email":"test3@mail.com",
-    "favoriteColor":"orange",
-    "birthday":"05/27/93"
-}
-### DELETE contact delete Jeremiah
-DELETE http://localhost:8080/contacts/65b5c5b8c842fca4f72c9f2b HTTP/1.1 
+//### PUT contact (works)
+//PUT http://localhost:8080/contacts/65b5c443c842fca4f72c9f2a HTTP/1.1
+//content-type: application/json
 
-### Create contact (works) 
-POST http://localhost:8080/contacts HTTP/1.1
-content-type: application/json
-
-{
-    "firstName":"Winter",
-    "lastName":"Muller",
-    "email":"wmuller@mail.com",
-    "favoriteColor":"black",
-    "birthday":"09/04/2014"
-}
-
-### PUT contact (works)
-PUT http://localhost:8080/contacts/65b5c443c842fca4f72c9f2a HTTP/1.1
-content-type: application/json
-
-{
-    "firstName":"Nathan",
-    "lastName":"Muller",
-    "email":"test4@mail.com",
-    "favoriteColor":"chocolate",
-    "birthday":"10/15/97"
-}
+//{
+    //"firstName":"Nathan",
+    //"lastName":"Muller",
+    //"email":"test4@mail.com",
+    //"favoriteColor":"chocolate",
+    //"birthday":"10/15/97"
+//}
 
 
 ### DELETE contact
