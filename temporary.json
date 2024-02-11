@@ -1,3 +1,4 @@
+
 {
     "character": {
         "Name": "Colonel Mustard",
@@ -20,7 +21,7 @@
         "mainCharacteristic": "Seductive",
         "occupation": "Movie Star"
     },
-    
+
     "character3": {
         "Name": "Professor Plum",
         "fullName": "Victor Plum",
@@ -30,5 +31,39 @@
         "mainHobby": "Video Games",
         "mainCharacteristic": "Mad Scientist",
         "occupation": "Professor"
+    },
+
+    "character4": {
+        "Name": "Mr. Green",
+        "fullName": "Jacob Mustard",
+        "background": "Phony Spirituality",
+        "maritalStatus": "Single",
+        "personalityType": "Campaigner",
+        "mainHobby": "Money Laundering",
+        "mainCharacteristic": "Schemer",
+        "occupation": "TV Evangelist"
+    },
+
+    "character5": {
+        "Name": "Mrs. Peacock",
+        "fullName": "Eleanor Peacock",
+        "background": "Wealth",
+        "maritalStatus": "Widow",
+        "personalityType": "Executive",
+        "mainHobby": "Stock Market",
+        "mainCharacteristic": "Extravagant",
+        "occupation": "None"
+    },
+
+    "character6": {
+        "Name": "Mrs. White",
+        "fullName": "Diane White",
+        "background": "Serving the Elite",
+        "maritalStatus": "Single",
+        "personalityType": "Pretentous",
+        "mainHobby": "Orchestrating",
+        "mainCharacteristic": "Scandalmonger",
+        "occupation": "Retired"
     }
+
 }

@@ -7,11 +7,11 @@ router.get('/', weaponsController.getAll);
  //router.get('/', professionalController.getData);
 router.get('/:id', weaponsController.getSingle);
 
-router.post('/', weaponsController.createCharacter);
+router.post('/', weaponsController.createWeapon);
 
-router.put('/:id', weaponsController.updateCharacter);
+router.put('/:id', weaponsController.updateWeapon);
 
-router.delete('/:id', weaponsController.deleteCharacter);
+router.delete('/:id', weaponsController.deleteWeapon);
 
 
 
