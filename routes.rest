@@ -5,8 +5,6 @@
 ### Get all character
 GET http://cse341-02a.onrender.com/clue
 
-### Get all character
-GET http://localhost:8080/clue
 
 ### Get character by ID
 GET http://cse341-02a.onrender.com/clue/65aaae4b0ff1a59c000cfe63
@@ -71,7 +69,7 @@ GET http://cse341-02a.onrender.com/clue/65ab15dcc1f33a000b6d1d2a
 //}
 
 
-### DELETE contact
-DELETE http://localhost:8080/contacts/65b5d8af9b3f581f8499e701 HTTP/1.1
+//### DELETE contact
+//DELETE http://localhost:8080/contacts/65b5d8af9b3f581f8499e701 HTTP/1.1
 
 
