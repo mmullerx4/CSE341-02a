@@ -11,9 +11,9 @@ const getAll = async (req, res) => {
 };
   
 const getSingle = async (req, res) => {
-  const userId = new ObjectID(req.params.id);
+  const characterId = new ObjectID(req.params.id);
   const result = await mongodb.getDb().db().collection('characters')
-  .find({ _id: userId });
+  .find({ _id: characterId });
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
@@ -41,7 +41,7 @@ const createCharacter = async (req, res) => {
 };
 
 const updateCharacter = async (req, res) => {
-  const userId = new ObjectID(req.params.id);
+  const characterId = new ObjectID(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const character = {
     Name: req.body.Name,
@@ -57,7 +57,7 @@ const updateCharacter = async (req, res) => {
     .getDb()
     .db()
     .collection('characters')
-    .replaceOne({ _id: userId }, character);
+    .replaceOne({ _id: characterId }, character);
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
@@ -67,8 +67,8 @@ const updateCharacter = async (req, res) => {
 };
 
 const deleteCharacter = async (req, res) => {
-  const userId = new ObjectID(req.params.id);
-  const response = await mongodb.getDb().db().collection('characters').deleteOne({ _id: userId }, true);
+  const characterId = new ObjectID(req.params.id);
+  const response = await mongodb.getDb().db().collection('characters').deleteOne({ _id: characterId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(200).send();
