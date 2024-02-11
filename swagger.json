@@ -8,7 +8,7 @@
   "host": "cse341-02a.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "http, https"
   ],
   "paths": {
     "/clue/": {
