@@ -11,17 +11,22 @@ const getAll = async (req, res) => {
 };
   
 const getSingle = async (req, res) => {
+  try {
   const weaponId = new ObjectID(req.params.id);
   const result = await mongodb.getDb().db().collection('weapons')
   .find({ _id: weaponId });
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
-  });
+  });}
+  catch(error){
+    res.status(500).json(error || 'Something went wrong while getting');
+  }
 };
  
  
 const createWeapon = async (req, res) => {
+  try {
   const weapon = {
     Name: req.body.Name,
     weight: req.body.weight,
@@ -31,11 +36,15 @@ const createWeapon = async (req, res) => {
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
-    res.status(500).json(response.error || 'Some error occurred while creating the weapon.');
+    res.status(500).json(response.error || 'Some error occurred while creating the weapon.');}
   }
+    catch(error){
+      res.status(500).json(error || 'Something went wrong while getting');
+    }
 };
 
 const updateWeapon = async (req, res) => {
+  try {
   const weaponId = new ObjectID(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const weapon = {
@@ -53,10 +62,14 @@ const updateWeapon = async (req, res) => {
     res.status(204).send();
   } else {
     res.status(500).json(response.error || 'Some error occurred while updating the weapon.');
+  }}
+  catch(error){
+    res.status(500).json(error || 'Something went wrong while getting');
   }
 };
 
 const deleteWeapon = async (req, res) => {
+  try {
   const weaponId = new ObjectID(req.params.id);
   const response = await mongodb.getDb().db().collection('weapons').deleteOne({ _id: weaponId }, true);
   console.log(response);
@@ -64,6 +77,9 @@ const deleteWeapon = async (req, res) => {
     res.status(200).send();
   } else {
     res.status(500).json(response.error || 'Some error occurred while deleting the weapon.');
+  }}
+  catch(error){
+    res.status(500).json(error || 'Something went wrong while getting');
   }
 };
 

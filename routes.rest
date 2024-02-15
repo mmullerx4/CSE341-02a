@@ -15,7 +15,7 @@ GET http://cse341-02a.onrender.com/clue/65aaaef90ff1a59c000cfe64
 ### Get character by ID
 GET http://cse341-02a.onrender.com/clue/65aab0110ff1a59c000cfe65
 
-### Get contact by ID
+### Get character by ID
 GET http://cse341-02a.onrender.com/clue/65ab15dcc1f33a000b6d1d2a
 
 //### Create contact
