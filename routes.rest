@@ -3,7 +3,7 @@
 
 //LocalHost
 ### Get all character
-GET http://localhost:8080/characters 
+GET http://cse341-02a.onrender.com/characters 
 
 ### Get all character
 GET http://cse341-02a.onrender.com/weapons

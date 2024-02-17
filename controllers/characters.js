@@ -8,7 +8,7 @@ const getAll = async (req, res) => {
    .db()
    .collection('characters')
    .find()
-   .toArray((err, lists) => {
+   .toArray().then((err, lists) => {
       if (err) {
         res.status(400).json({ message: err});
       }
