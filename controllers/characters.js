@@ -16,21 +16,9 @@ const getAll = async (req, res) => {
         res.status(200).json(lists); //sends JSON response
   });
 };
-
-// const getAll = async (req, res) => {
-//   try {
-//   const result = await mongodb.getDb().db().collection('characters').find();
-//   result.toArray().then((lists) => {
-//     res.setHeader('Content-Type', 'application/json'); //response header indicates JSON
-//     res.status(200).json(lists); //sends JSON response
-//   });}
-//   catch(error){
-//     res.status(500).json(error || 'Something went wrong while getting');
-//   }
-// };
   
 const getSingle = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
+  const characterId = new ObjectId(req.params.id);
   mongodb
    .getDb()
    .db()
@@ -44,7 +32,6 @@ const getSingle = async (req, res) => {
         res.status(200).json(result[0]); //sends JSON response
   });
 };
- 
  
 const createCharacter = async (req, res) => {
   const character = {
@@ -91,47 +78,14 @@ const updateCharacter = async (req, res) => {
      }
    };
 
-// const updateCharacter = async (req, res) => {
-//   try {
-//   const characterId = new ObjectID(req.params.id);
-//   // be aware of updateOne if you only want to update specific fields
-//   const character = {
-//     Name: req.body.Name,
-//     fullName: req.body.fullName,
-//     background: req.body.background,
-//     maritalStatus: req.body.maritalStatus,
-//     personalityType: req.body.personalityType,
-//     mainHobby: req.body.mainHobby,
-//     mainCharacteristic: req.body.mainCharacteristic,
-//     occupation: req.body.occupation
-//   };
-//   const response = await mongodb
-//     .getDb()
-//     .db()
-//     .collection('characters')
-//     .replaceOne({ _id: characterId }, character);
-//   console.log(response);
-//   if (response.modifiedCount > 0) {
-//     res.status(204).send();
-//   } else {
-//     res.status(500).json(response.error || 'Some error occurred while updating the character.');
-//   }}
-//   catch(error){
-//     res.status(500).json(error || 'Something went wrong while getting');
-//   }
-// };
-
 const deleteCharacter = async (req, res) => {
-  const characterId = new ObjectID(req.params.id);
+  const characterId = new ObjectId(req.params.id);
   const response = await mongodb.getDb().db().collection('characters').deleteOne({ _id: characterId }, true);
   console.log(response);
-  if (response.deletedCount > 0) {
-    res.status(200).send();
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while deleting the character.');
-  }}
-  catch(error){
-    res.status(500).json(error || 'Something went wrong while getting');
+  if (response.modifiedCount > 0) {
+    res.status(204).send();
+ } else {
+    res.status(500).json(response.error || 'Some error occurred while updating the character.');
   }
 };
 
