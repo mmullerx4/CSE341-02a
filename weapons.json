@@ -21,18 +21,8 @@
         "Name": "Lead Pipe",
         "weight": "8 lbs",
         "color": "Gray"
-    },
-
-    "weapon5": {
-        "Name": "Wrench",
-        "weight": "6 lbs",
-        "color": "Silver"
-    },
-
-    "weapon6": {
-        "Name": "Rope",
-        "weight": "5 lbs",
-        "color": "Beige"
     }
+
+    
 
 }

@@ -8,10 +8,10 @@ router.get('/', weaponsController.getAll);
  //router.get('/', professionalController.getData);
 router.get('/:id', weaponsController.getSingle);
 
-router.post('/', weaponsController.createWeapon);
+//router.post('/', weaponsController.createWeapon);
 router.post('/', validation.saveWeapon, weaponsController.createWeapon)
 
-router.put('/:id', weaponsController.updateWeapon);
+//router.put('/:id', weaponsController.updateWeapon);
 router.put('/:id', validation.saveWeapon, weaponsController.updateWeapon);
 
 router.delete('/:id', weaponsController.deleteWeapon);

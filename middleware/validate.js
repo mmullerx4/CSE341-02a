@@ -1,6 +1,6 @@
 const validator = require('../helpers/validate');
 
-const saveContact = (req, res, next) => {
+const saveCharacter = (req, res, next) => {
   const validationRule = {
     Name: 'required|string',
     fullName: 'required|string',
@@ -24,6 +24,25 @@ const saveContact = (req, res, next) => {
   });
 };
 
+const saveWeapon = (req, res, next) => {
+  const validationRule = {
+    Name: 'required|string',
+    weight: 'required|string',
+    color: 'required|string'
+  };
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: 'Validation failed',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
+};
+
 module.exports = {
-  saveContact
+  saveCharacter, saveWeapon
 };
