@@ -36,21 +36,30 @@ const getSingle = async (req, res) => {
 };
  
 const createCharacter = async (req, res) => {
-  const character = {
-    Name: req.body.Name,
-    fullName: req.body.fullName,
-    background: req.body.background,
-    maritalStatus: req.body.maritalStatus,
-    personalityType: req.body.personalityType,
-    mainHobby: req.body.mainHobby,
-    mainCharacteristic: req.body.mainCharacteristic,
-    occupation: req.body.occupation
-  };
-  const response = await mongodb.getDb().db().collection('characters').insertOne(character);
-  if (response.acknowledged) {
-    res.status(201).json(response);
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while creating the character.');
+  try {
+    // Input validation logic can be added here
+
+    const character = {
+      Name: req.body.Name,
+      fullName: req.body.fullName,
+      background: req.body.background,
+      maritalStatus: req.body.maritalStatus,
+      personalityType: req.body.personalityType,
+      mainHobby: req.body.mainHobby,
+      mainCharacteristic: req.body.mainCharacteristic,
+      occupation: req.body.occupation
+    };
+
+    const response = await mongodb.getDb().db().collection('characters').insertOne(character);
+
+    if (response.acknowledged) {
+      res.status(201).json(response);
+    } else {
+      res.status(500).json(response.err || 'Some error occurred while creating the character.');
+    }
+  } catch (error) {
+    console.error('Error creating character:', error);
+    res.status(500).json('Internal Server Error');
   }
 };
 
