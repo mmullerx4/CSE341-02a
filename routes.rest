@@ -3,8 +3,10 @@
 
 //LocalHost
 ### Get all character
-GET http://cse341-02a.onrender.com/clue
+GET http://localhost:8080/characters 
 
+### Get all character
+GET http://cse341-02a.onrender.com/weapons
 
 ### Get character by ID
 GET http://cse341-02a.onrender.com/clue/65aaae4b0ff1a59c000cfe63
