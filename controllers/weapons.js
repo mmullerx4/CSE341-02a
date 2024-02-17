@@ -3,18 +3,20 @@ const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
-  mongodb
-   .getDb()
-   .db()
-   .collection('weapons')
-   .find()
-   .toArray().then((err, lists) => {
-      if (err) {
-        res.status(400).json({ message: err});
-      }
-        res.setHeader('Content-Type', 'application/json'); //response header indicates JSON
-        res.status(200).json(lists); //sends JSON response
-  });
+  try {
+    const lists = await mongodb
+      .getDb()
+      .db()
+      .collection('characters')
+      .find()
+      .toArray();
+ 
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json(lists);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ message: err.message });
+  }
 };
   
 const getSingle = async (req, res) => {
@@ -70,13 +72,15 @@ const updateWeapon = async (req, res) => {
 };
 
 const deleteWeapon = async (req, res) => {
-  const weaponId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db().collection('weapons').deleteOne({ _id: weaponId }, true);
-  console.log(response);
-  if (response.modifiedCount > 0) {
-    res.status(204).send();
- } else {
-    res.status(500).json(response.error || 'Some error occurred while updating the weapon.');
+  if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a valid character Id. Cannot find character.');
+    }
+    const weaponId = new ObjectId(req.params.id);
+  const response = await mongodb.getDb().db('').collection('weapons').deleteOne({_id: weaponId});
+  if (response.deletedCount > 0){
+      res.status(204).send();
+  } else{
+      res.status(500).json(response.error || 'Some error occuured while deleting the weapon.');
   }
 };
 
