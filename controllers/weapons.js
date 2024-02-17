@@ -8,7 +8,7 @@ const getAll = async (req, res) => {
    .db()
    .collection('weapons')
    .find()
-   .toArray((err, lists) => {
+   .toArray().then((err, lists) => {
       if (err) {
         res.status(400).json({ message: err});
       }
@@ -24,7 +24,7 @@ const getSingle = async (req, res) => {
    .db()
    .collection('weapons')
    .find({ _id: weaponId})
-   .toArray((err, result) => {
+   .toArray().then((err, result) => {
       if (err) {
         res.status(400).json({ message: err});
       }

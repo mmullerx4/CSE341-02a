@@ -24,7 +24,7 @@ const getSingle = async (req, res) => {
    .db()
    .collection('characters')
    .find({ _id: characterId})
-   .toArray((err, result) => {
+   .toArray().then((err, result) => {
       if (err) {
         res.status(400).json({ message: err});
       }
