@@ -7,7 +7,7 @@ const getAll = async (req, res) => {
     const lists = await mongodb
       .getDb()
       .db()
-      .collection('characters')
+      .collection('weapons')
       .find()
       .toArray();
  

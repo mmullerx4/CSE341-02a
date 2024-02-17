@@ -3,18 +3,20 @@ const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
-   mongodb
-   .getDb()
-   .db()
-   .collection('characters')
-   .find()
-   .toArray().then((err, lists) => {
-      if (err) {
-        res.status(400).json({ message: err});
-      }
-        res.setHeader('Content-Type', 'application/json'); //response header indicates JSON
-        res.status(200).json(lists); //sends JSON response
-  });
+  try {
+    const lists = await mongodb
+      .getDb()
+      .db()
+      .collection('characters')
+      .find()
+      .toArray();
+ 
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json(lists);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ message: err.message });
+  }
 };
   
 const getSingle = async (req, res) => {
