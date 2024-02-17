@@ -5,11 +5,10 @@
     "description": "Clue API",
     "version": "1.0.0"
   },
-  "host": "cse341-02a.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
-    "http",
-    "https"
+    "http"
   ],
   "paths": {
     "/api-docs": {
