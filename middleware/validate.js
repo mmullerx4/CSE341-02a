@@ -4,7 +4,7 @@ const saveCharacter = (req, res, next) => {
   const validationRule = {
     Name: 'required|string',
     fullName: 'required|string',
-    background: 'required|email',
+    background: 'required|string',
     maritalStatus: 'required|string',
     personalityType: 'required|string',
     mainHobby: 'required|string',
