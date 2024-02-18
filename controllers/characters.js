@@ -18,7 +18,7 @@ const getAll = async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 };
-  
+//by Id
 const getSingle = async (req, res) => {
   const characterId = new ObjectId(req.params.id);
   mongodb
@@ -39,7 +39,7 @@ if (result.length > 0) {
 }
     });
 };
- 
+//POST 
 const createCharacter = async (req, res) => {
   const character = {
     Name: req.body.Name,
@@ -58,7 +58,7 @@ const createCharacter = async (req, res) => {
     res.status(500).json(response.error || 'Some error occurred while creating the character.');
   }
 };
-
+//PUT
 const updateCharacter = async (req, res) => {
      const characterId = new ObjectId(req.params.id);
      // be aware of updateOne if you only want to update specific fields
@@ -84,7 +84,7 @@ const updateCharacter = async (req, res) => {
        res.status(500).json(response.error || 'Some error occurred while updating the character.');
      }
    };
-
+//DELETE
    const deleteCharacter = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid character Id. Cannot find character.');
