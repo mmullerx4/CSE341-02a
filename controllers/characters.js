@@ -22,17 +22,22 @@ const getAll = async (req, res) => {
 const getSingle = async (req, res) => {
   const characterId = new ObjectId(req.params.id);
   mongodb
-   .getDb()
-   .db()
-   .collection('characters')
-   .find({ _id: characterId})
-   .toArray().then((err, result) => {
+    .getDb()
+    .db()
+    .collection('characters')
+    .find({ _id: characterId })
+    .toArray()
+    .then((result, err) => {
       if (err) {
-        res.status(400).json({ message: err});
+        res.status(400).json({ message: err });
       }
-        res.setHeader('Content-Type', 'application/json'); //response header indicates JSON
-        res.status(200).json(result[0]); //sends JSON response
-  });
+      res.setHeader('Content-Type', 'application/json');
+if (result.length > 0) {
+  res.status(200).json(result[0]);
+} else {
+  res.status(404).json({ message: 'Character not found' });
+}
+    });
 };
  
 const createCharacter = async (req, res) => {
