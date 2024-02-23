@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const { auth } = require('express-openid-connect');
 
 router.use('/', require('./swagger'));
 router.use('/characters', require('./characters'));
 router.use('/weapons', require('./weapons'));
 
-const { auth } = require('express-openid-connect');
+
 
 const config = {
   authRequired: false,
