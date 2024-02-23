@@ -1,13 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const { auth } = require('express-openid-connect');
-
-router.use('/', require('./swagger'));
-router.use('/characters', require('./characters'));
-router.use('/weapons', require('./weapons'));
-
-
-
 const config = {
   authRequired: false,
   auth0Logout: true,
@@ -16,6 +9,14 @@ const config = {
   clientID: 'LDz16qaGJEjNvtGd1aMl7M6xfMg8TdOP',
   issuerBaseURL: 'https://dev-g0kggvb542slyuvi.us.auth0.com'
 };
+
+router.use('/', require('./swagger'));
+router.use('/characters', require('./characters'));
+router.use('/weapons', require('./weapons'));
+
+
+
+
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 router.use(auth(config));
