@@ -90,7 +90,7 @@ const updateCharacter = async (req, res) => {
         res.status(400).json('Must use a valid character Id. Cannot find character.');
       }
       const characterId = new ObjectId(req.params.id);
-    const response = await mongodb.getDb().db('').collection('characters').deleteOne({_id: characterId});
+    const response = await mongodb.getDb().db().collection('characters').deleteOne({_id: characterId});
     if (response.deletedCount > 0){
         res.status(204).send();
     } else{

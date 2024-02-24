@@ -81,7 +81,7 @@ const deleteWeapon = async (req, res) => {
       res.status(400).json('Must use a valid character Id. Cannot find character.');
     }
     const weaponId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db('').collection('weapons').deleteOne({_id: weaponId});
+  const response = await mongodb.getDb().db().collection('weapons').deleteOne({_id: weaponId});
   if (response.deletedCount > 0){
       res.status(204).send();
   } else{
