@@ -15,7 +15,7 @@ const saveCharacter = (req, res, next) => {
     if (!status) {
       res.status(412).send({
         success: false,
-        message: 'Validation failed',
+        message: 'Precondition Failed: Validation failed for character',
         data: err
       });
     } else {
@@ -34,7 +34,7 @@ const saveWeapon = (req, res, next) => {
     if (!status) {
       res.status(412).send({
         success: false,
-        message: 'Validation failed',
+        message: 'Precondition Failed: Validation failed for weapon',
         data: err
       });
     } else {
@@ -44,5 +44,6 @@ const saveWeapon = (req, res, next) => {
 };
 
 module.exports = {
-  saveCharacter, saveWeapon
+  saveCharacter,
+  saveWeapon
 };

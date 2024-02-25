@@ -9,6 +9,7 @@ router.get('/', charactersController.getAll);
  //router.get('/', professionalController.getData);
 router.get('/:id', charactersController.getSingle);
 
+
 //router.post('/', charactersController.createCharacter);
 router.post('/', validation.saveCharacter, requiresAuth(), charactersController.createCharacter);
 
@@ -17,6 +18,7 @@ router.put('/:id', validation.saveCharacter, requiresAuth(), charactersControlle
 
 router.delete('/:id', requiresAuth(), charactersController.deleteCharacter);
 
+//custom message
 
 
  

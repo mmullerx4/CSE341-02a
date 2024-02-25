@@ -9,15 +9,13 @@ const config = {
   clientID: 'LDz16qaGJEjNvtGd1aMl7M6xfMg8TdOP',
   issuerBaseURL: 'https://dev-g0kggvb542slyuvi.us.auth0.com'
 };
-//include swagger routes
+
 router.use('/', require('./swagger'));
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 router.use(auth(config)); //this auth protects all routes defined after this point
 //include characters and weapons routes
 router.use('/characters', require('./characters'));
 router.use('/weapons', require('./weapons'));
-
-
 
 
 // req.isAuthenticated is provided from the auth router
