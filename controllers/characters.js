@@ -1,7 +1,6 @@
 //This file is where logic takes place
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
-const bcrypt = require('bcrypt')
 
 const getAll = async (req, res) => {
   try {
@@ -50,7 +49,7 @@ const createCharacter = async (req, res) => {
     personalityType: req.body.personalityType,
     mainHobby: req.body.mainHobby,
     mainCharacteristic: req.body.mainCharacteristic,
-    occupation: req.body.occupation, password: hashedPassword
+    occupation: req.body.occupation, //password: hashedPassword
   } = req.body;
   const response = await mongodb.getDb().db().collection('characters').insertOne(character);
   if (response.acknowledged) {
@@ -59,6 +58,7 @@ const createCharacter = async (req, res) => {
     res.status(500).json(response.error || 'Some error occurred while creating the character.');
   }
 };
+
 //PUT
 const updateCharacter = async (req, res) => {
      const characterId = new ObjectId(req.params.id);
@@ -105,6 +105,5 @@ module.exports = {
   createCharacter,
   updateCharacter,
   deleteCharacter,
-  bcrypt 
 };
 
