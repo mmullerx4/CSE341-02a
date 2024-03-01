@@ -1,6 +1,7 @@
 //This file is where logic takes place
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
+const bcrypt = require('bcrypt')
 
 const getAll = async (req, res) => {
   try {
@@ -49,8 +50,8 @@ const createCharacter = async (req, res) => {
     personalityType: req.body.personalityType,
     mainHobby: req.body.mainHobby,
     mainCharacteristic: req.body.mainCharacteristic,
-    occupation: req.body.occupation
-  };
+    occupation: req.body.occupation, password: hashedPassword
+  } = req.body;
   const response = await mongodb.getDb().db().collection('characters').insertOne(character);
   if (response.acknowledged) {
     res.status(201).json(response);
@@ -103,6 +104,7 @@ module.exports = {
   getSingle,
   createCharacter,
   updateCharacter,
-  deleteCharacter
+  deleteCharacter,
+  bcrypt 
 };
 
