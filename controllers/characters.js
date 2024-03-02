@@ -49,7 +49,7 @@ const createCharacter = async (req, res) => {
     personalityType: req.body.personalityType,
     mainHobby: req.body.mainHobby,
     mainCharacteristic: req.body.mainCharacteristic,
-    occupation: req.body.occupation, //password: hashedPassword
+    occupation: req.body.occupation, 
   } = req.body;
   const response = await mongodb.getDb().db().collection('characters').insertOne(character);
   if (response.acknowledged) {
