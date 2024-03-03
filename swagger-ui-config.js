@@ -1,8 +1,8 @@
 const SwaggerUI = require('swagger-ui');
 const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('../swagger.json');
+const swaggerDocument = require('./swagger.json');
 
-const ui = SwaggerUI;
+const ui = SwaggerUI();
 
 ui.initOAuth({
     clientId: "LDz16qaGJEjNvtGd1aMl7M6xfMg8TdOP",
