@@ -10,7 +10,7 @@ router.get('/', weaponsController.getAll);
 router.get('/:id', weaponsController.getSingle);
 
 //router.post('/', weaponsController.createWeapon);
-router.post('/', validation.saveWeapon, requiresAuth(), weaponsController.createWeapon)
+router.post('/', validation.saveWeapon, requiresAuth(), weaponsController.createWeapon);
 
 //router.put('/:id', weaponsController.updateWeapon);
 router.put('/:id', validation.saveWeapon, requiresAuth(), weaponsController.updateWeapon);

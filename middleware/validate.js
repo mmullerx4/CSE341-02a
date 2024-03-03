@@ -1,3 +1,4 @@
+const YourClientErrorType = require('../customError');
 const validator = require('../helpers/validate');
 
 const saveCharacter = (req, res, next) => {
@@ -11,13 +12,10 @@ const saveCharacter = (req, res, next) => {
     mainCharacteristic: 'required|string',
     occupation: 'required|string'
   };
+
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
-      res.status(412).send({
-        success: false,
-        message: 'Precondition Failed: Validation failed for character',
-        data: err
-      });
+      next(new YourClientErrorType(412, 'Precondition Failed: Validation failed for character', err));
     } else {
       next();
     }
@@ -30,13 +28,10 @@ const saveWeapon = (req, res, next) => {
     weight: 'required|string',
     color: 'required|string'
   };
+
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
-      res.status(412).send({
-        success: false,
-        message: 'Precondition Failed: Validation failed for weapon',
-        data: err
-      });
+        next(new YourClientErrorType(412, 'Precondition Failed: Validation failed for weapon', err));
     } else {
       next();
     }

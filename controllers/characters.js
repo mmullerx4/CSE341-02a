@@ -15,29 +15,35 @@ const getAll = async (req, res) => {
     res.status(200).json(lists);
   } catch (err) {
     console.error(err);
-    res.status(400).json({ message: err.message });
+    
+    if (err instanceof YourClientErrorType) {
+      res.status(400).json({ message: err.message });
+    } else {
+      res.status(500).json({ message: 'Internal server error' });
+    }
   }
 };
 //by Id
 const getSingle = async (req, res) => {
-  const characterId = new ObjectId(req.params.id);
-  mongodb
-    .getDb()
-    .db()
-    .collection('characters')
-    .find({ _id: characterId })
-    .toArray()
-    .then((result, err) => {
-      if (err) {
-        res.status(400).json({ message: err });
-      }
-      res.setHeader('Content-Type', 'application/json');
-if (result.length > 0) {
-  res.status(200).json(result[0]);
-} else {
-  res.status(404).json({ message: 'Character not found' });
-}
-    });
+  try {
+    const characterId = new ObjectId(req.params.id);
+    const result = await mongodb
+      .getDb()
+      .db()
+      .collection('characters')
+      .find({ _id: characterId })
+      .toArray()
+      
+    res.setHeader('Content-Type', 'application/json');
+    if (result.length > 0) {
+      res.status(200).json(result[0]);
+    } else {
+      res.status(404).json({ message: 'Character not found' });
+    }
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Internal server error'});
+    }
 };
 //POST 
 const createCharacter = async (req, res) => {
