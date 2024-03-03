@@ -18,7 +18,6 @@ router.put('/:id', validation.saveCharacter, requiresAuth(), charactersControlle
 
 router.delete('/:id', requiresAuth(), charactersController.deleteCharacter);
 
-//custom message
 
 
  

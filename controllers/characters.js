@@ -104,6 +104,6 @@ module.exports = {
   getSingle,
   createCharacter,
   updateCharacter,
-  deleteCharacter,
+  deleteCharacter
 };
 
