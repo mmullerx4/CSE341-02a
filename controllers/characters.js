@@ -1,4 +1,12 @@
 //This file is where logic takes place
+//define YourClientErrorType
+class YourClientErrorType extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'YourClientErrorType';
+  }
+}
+
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
@@ -106,6 +114,7 @@ const updateCharacter = async (req, res) => {
   };
 
 module.exports = {
+  YourClientErrorType,
   getAll,
   getSingle,
   createCharacter,

@@ -1,4 +1,11 @@
 //This file is where logic takes place
+class YourClientErrorType extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'YourClientErrorType';
+  }
+}
+
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
@@ -15,8 +22,13 @@ const getAll = async (req, res) => {
     res.status(200).json(lists);
   } catch (err) {
     console.error(err);
+
+    if (err instanceof YourClientErrorType) {
+      res.status(400).json({ message: err.message});
+  } else {
     res.status(500).json({ message: 'Internal server error' });
   }
+}
 };
   
 const getSingle = async (req, res) => {
@@ -37,7 +49,7 @@ const getSingle = async (req, res) => {
         }
       } catch (err) {
         console.error(err);
-        res.status(400).json({ message: err.message});
+        res.status(500).json({ message: 'Internal server error'});
       }
 };
  
@@ -49,6 +61,7 @@ const createWeapon = async (req, res) => {
       weight: req.body.weight,
       color: req.body.color
     };
+    
     const response = await mongodb.getDb().db().collection('weapons').insertOne(weapon);
     if (response.acknowledged) {
       res.status(201).json(response);
@@ -106,6 +119,7 @@ const deleteWeapon = async (req, res) => {
 };
 
 module.exports = {
+  YourClientErrorType,
   getAll,
   getSingle,
   createWeapon,
