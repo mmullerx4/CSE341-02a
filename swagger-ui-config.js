@@ -1,6 +1,8 @@
 //const SwaggerUI = require('swagger-ui');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
+const clientId = process.env.CLIENT_ID;
+const clientSecret = process.env.CLIENT_SECRET;
 
 
 //To pass OAuth settings to Swagger UI correctly, you can directly include the OAuth configuration when creating the Swagger UI instance
@@ -8,8 +10,8 @@ const swaggerDocument = require('./swagger.json');
 const swaggerOptions = {
     swaggerOptions: {
         OAuth: {
-        clientId: "LDz16qaGJEjNvtGd1aMl7M6xfMg8TdOP",
-        clientSecret: "B-0YddiiEbAaAhKqOPuRs8bh44xFJAByM_ORRqTkfEZmmk-3SHO40Ek82ZjY_MsR",
+        clientId,
+        clientSecret,
         realm: "https://cse341-02a.onrender.com",
         appName: "Clue",
         scopeSeparator: " ",
