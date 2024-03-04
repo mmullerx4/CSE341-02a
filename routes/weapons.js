@@ -23,5 +23,4 @@ router.delete('/:id', requiresAuth(), weaponsController.deleteWeapon);
 
 
  
-//export routes
 module.exports = router;
