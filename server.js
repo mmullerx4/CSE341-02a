@@ -1,3 +1,7 @@
+//require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect')
@@ -23,6 +27,6 @@ mongodb.initDb((err) => {
         console.log(err);
     } else {
         app.listen(port);
-            console.log(`Connected to database and listening on ${port}`);
+        console.log(`Connected to database and listening on ${port}`);
         }
 });

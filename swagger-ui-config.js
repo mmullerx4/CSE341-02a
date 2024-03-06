@@ -9,17 +9,21 @@ const clientSecret = process.env.CLIENT_SECRET;
 
 const swaggerOptions = {
     swaggerOptions: {
+      plugins: [
+        {
         OAuth: {
-        clientId,
-        clientSecret,
-        realm: "https://cse341-02a.onrender.com",
-        appName: "Clue",
-        scopeSeparator: " ",
-        scopes: "openid profile",
-        additionalQueryStringParams: { test: "hello" },
-        useBasicAuthenticationWithAccessCodeGrant: true,
-        usePkceWithAuthorizationCodeGrant: true
-    }
+          clientId,
+          clientSecret,
+          realm: "https://cse341-02a.onrender.com",
+          appName: "Clue",
+          scopeSeparator: " ",
+          scopes: "openid profile",
+          additionalQueryStringParams: { test: "hello" },
+          useBasicAuthenticationWithAccessCodeGrant: true,
+          usePkceWithAuthorizationCodeGrant: true
+        }
+      }
+    ]
   }
 };
 

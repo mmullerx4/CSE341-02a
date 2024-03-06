@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const { auth } = require('express-openid-connect');
+
+console.log('SECRET:', process.env.CLIENT_SECRET);
+console.log('CLIENT_ID:', process.env.CLIENT_ID);
 const config = {
   authRequired: false,
   auth0Logout: true,
-  secret: process.env.SECRET,
+  secret: process.env.CLIENT_SECRET,
   baseURL: 'https://cse341-02a.onrender.com',
-  clientID: process.env.CLIENT_ID,
+  clientId: process.env.CLIENT_ID,
   issuerBaseURL: 'https://dev-g0kggvb542slyuvi.us.auth0.com'
 };
 
