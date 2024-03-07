@@ -9,7 +9,7 @@ const config = {
   auth0Logout: true,
   secret: process.env.CLIENT_SECRET,
   baseURL: 'https://cse341-02a.onrender.com',
-  clientId: process.env.CLIENT_ID,
+  
   issuerBaseURL: 'https://dev-g0kggvb542slyuvi.us.auth0.com'
 };
 
